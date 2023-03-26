@@ -3,7 +3,8 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const MovieList = () => {
   const [searchMovie, setSearchMovie] = useState("");
-  useEffect(() => {}, []);
+  const [isInput, setIsInput] = useState(false);
+  const [moviesArray, setMoviesArray] = useState([]);
 
   const handleSearchMovie = (e) => {
     setSearchMovie(e.target.value);
@@ -12,24 +13,46 @@ const MovieList = () => {
   const fetchMovie = (movieName) => {
     const url = `http://www.omdbapi.com/?s=${movieName}&apikey=f512a0ba`;
     fetch(url).then((response) =>
-      response.json().then((result) => console.log(result))
+      response.json().then((result) => {
+        console.log(result);
+        setMoviesArray(result.Search);
+      })
     );
   };
+  console.log(moviesArray);
   return (
     <div>
       <div className="header">
         {" "}
-        <div className="searchBar">
-          <SearchIcon color="disabled" />
-          Search movie
+        <div className="searchBar" onClick={() => setIsInput(true)}>
+          {isInput ? (
+            <input
+              type="text"
+              placeholder="Search..."
+              className="input"
+              onChange={handleSearchMovie}
+            />
+          ) : (
+            <>
+              {" "}
+              <SearchIcon color="disabled" />
+              Search movie
+            </>
+          )}
         </div>
-        {/* <input type="text" onChange={handleSearchMovie} /> */}
         <button
           className="searchButton"
           onClick={() => fetchMovie(searchMovie)}
         >
           Search
         </button>
+      </div>
+      <div>
+        {moviesArray.map((el) => (
+          <div key={el.imdbID}>
+            <p>{el.Title}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
