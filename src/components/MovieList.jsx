@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 
 const MovieList = () => {
@@ -21,7 +21,7 @@ const MovieList = () => {
   };
   console.log(moviesArray);
   return (
-    <div>
+    <div className="movieContainer">
       <div className="header">
         {" "}
         <div className="searchBar" onClick={() => setIsInput(true)}>
@@ -31,6 +31,8 @@ const MovieList = () => {
               placeholder="Search..."
               className="input"
               onChange={handleSearchMovie}
+              required
+              autoFocus
             />
           ) : (
             <>
@@ -47,10 +49,12 @@ const MovieList = () => {
           Search
         </button>
       </div>
-      <div>
+      <div className="moviesList">
         {moviesArray.map((el) => (
-          <div key={el.imdbID}>
-            <p>{el.Title}</p>
+          <div key={el.imdbID} className="card">
+            <img src={el.Poster} alt="" />
+            <h1>{el.Title}</h1>
+            <p>Release - {el.Year}</p>
           </div>
         ))}
       </div>

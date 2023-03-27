@@ -4,9 +4,9 @@ import "./style.css";
 
 const App = () => {
   return (
-    <div>
+    <>
       <MovieList />
-    </div>
+    </>
   );
 };
 
