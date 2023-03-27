@@ -1,11 +1,11 @@
 import React from "react";
-import MovieList from "./components/MovieList";
+import Routing from "./Routing";
 import "./style.css";
 
 const App = () => {
   return (
     <>
-      <MovieList />
+      <Routing />
     </>
   );
 };

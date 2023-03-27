@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 const MovieList = () => {
   const [searchMovie, setSearchMovie] = useState("");
@@ -51,11 +52,13 @@ const MovieList = () => {
       </div>
       <div className="moviesList">
         {moviesArray.map((el) => (
-          <div key={el.imdbID} className="card">
-            <img src={el.Poster} alt="" />
-            <h1>{el.Title}</h1>
-            <p>Release - {el.Year}</p>
-          </div>
+          <Link to={`/${el.imdbID}`} key={el.imdbID}>
+            <div className="card">
+              <img src={el.Poster} alt="" />
+              <h1>{el.Title}</h1>
+              <p>Release - {el.Year}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
