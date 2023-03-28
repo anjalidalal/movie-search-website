@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const MovieList = () => {
   const [searchMovie, setSearchMovie] = useState("");
-  const [isInput, setIsInput] = useState(false);
   const [moviesArray, setMoviesArray] = useState([]);
 
   const handleSearchMovie = (e) => {
@@ -13,53 +14,50 @@ const MovieList = () => {
 
   const fetchMovie = (movieName) => {
     const url = `https://www.omdbapi.com/?s=${movieName}&apikey=f512a0ba`;
-    fetch(url).then((response) =>
-      response.json().then((result) => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((result) => {
         console.log(result);
         setMoviesArray(result.Search);
       })
-    );
+      .catch((error) => {
+        console.log(error);
+        alert("Movie not found!!");
+      });
   };
   console.log(moviesArray);
   return (
     <div className="movieContainer">
       <div className="header">
         {" "}
-        <div className="searchBar" onClick={() => setIsInput(true)}>
-          {isInput ? (
-            <input
-              type="text"
-              placeholder="Search..."
-              className="input"
-              onChange={handleSearchMovie}
-              required
-              autoFocus
-            />
-          ) : (
-            <>
-              {" "}
-              <SearchIcon color="disabled" />
-              Search movie
-            </>
-          )}
-        </div>
-        <button
+        <TextField
+          id="outlined-basic"
+          label="Search movie..."
+          size="small"
+          onClick={handleSearchMovie}
+          variant="outlined"
+        />
+        <Button
           className="searchButton"
+          variant="contained"
           onClick={() => fetchMovie(searchMovie)}
         >
+          {" "}
+          <SearchIcon fontSize="small" />
           Search
-        </button>
+        </Button>
       </div>
+      <p>Results for {`"${searchMovie}" movie...`}</p>
       <div className="moviesList">
-        {moviesArray.map((el) => (
+        {moviesArray?.map((el) => (
           <Link to={`/${el.imdbID}`} key={el.imdbID}>
             <div className="card">
-              <img src={el.Poster} alt="" />
-              <h1>{el.Title}</h1>
-              <p>Release - {el.Year}</p>
+              <img src={el.Poster} className="poster" alt="" />
+              <h1 className="title">{el.Title}</h1>
+              <p className="releaseYear">Release - {el.Year}</p>
             </div>
           </Link>
-        ))}
+        ))}{" "}
       </div>
     </div>
   );

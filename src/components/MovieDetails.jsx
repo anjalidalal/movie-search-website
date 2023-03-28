@@ -19,7 +19,7 @@ const MovieDetails = (props) => {
 
   return (
     <>
-      <div>HELLUUUUU</div>
+      <div></div>
     </>
   );
 };
