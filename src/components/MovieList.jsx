@@ -12,15 +12,13 @@ const MovieList = () => {
   };
 
   const fetchMovie = (movieName) => {
-    const url = `http://www.omdbapi.com/?s=${movieName}&apikey=f512a0ba`;
+    const url = `https://www.omdbapi.com/?s=${movieName}&apikey=f512a0ba`;
     fetch(url).then((response) =>
       response.json().then((result) => {
-        console.log(result);
         setMoviesArray(result.Search);
       })
     );
   };
-  console.log(moviesArray);
   return (
     <div className="movieContainer">
       <div className="header">
