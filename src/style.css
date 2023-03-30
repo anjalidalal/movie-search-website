@@ -12,6 +12,9 @@ body {
   font-family: "Nunito Sans", sans-serif;
   background-color: #f8f9fd;
 }
+button {
+  cursor: pointer;
+}
 .header {
   width: 100%;
   position: fixed;
@@ -22,20 +25,9 @@ body {
   gap: 10px;
   align-items: flex-start;
   background-color: #fff;
-  box-shadow: 0 1px 5px rgba(3, 0, 55, 0.08);
 }
 .searchButton {
-  background-color: #1c94d9;
-  border: none;
-  font-weight: 500;
-  color: #fff;
-  border-radius: 3px;
-  padding: 0px 13px;
   height: 40px;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  margin: 0px 0px 0px 10px;
 }
 .input:focus {
   outline: none;
@@ -48,7 +40,7 @@ body {
   justify-content: center;
   gap: 24px;
   margin: auto;
-  padding: 20px 0px;
+  padding: 120px 10px 20px 10px;
 }
 .card {
   background: hsl(0, 0%, 100%);
@@ -59,6 +51,7 @@ body {
   flex-direction: column;
   width: 300px;
   height: 340px;
+  margin: 10px;
 }
 .poster {
   width: 100%;
@@ -69,7 +62,8 @@ body {
 .movieContainer > p {
   position: fixed;
   top: 0%;
-  background: hsl(0, 0%, 100%);
+  background: #ffffff;
+  box-shadow: 0 1px 5px rgba(3, 0, 55, 0.08);
   width: 100%;
   z-index: 999;
   margin-top: 55px;
@@ -89,9 +83,43 @@ a {
 .releaseYear {
   margin-bottom: 10px;
 }
-
-/* @media (min-width: 768px) {
-  .moviesList {
-    margin: auto;
+.movieDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+}
+.movieDetails > div {
+  width: 90%;
+  gap: 24px;
+  margin: auto;
+  display: flex;
+  padding: 0px 24px;
+}
+.back {
+  position: fixed;
+  top: 1%;
+  left: 1%;
+  border: none;
+  padding: 5px;
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  .card {
+    width: 270px;
   }
-} */
+  .moviesList {
+    padding: 120px 10px 25px 10px;
+  }
+  .header {
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .movieContainer > p {
+    padding: 10px 22px;
+  }
+}

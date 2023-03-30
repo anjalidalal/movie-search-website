@@ -17,7 +17,6 @@ const MovieList = () => {
     fetch(url)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setMoviesArray(result.Search);
       })
       .catch((error) => {
@@ -25,7 +24,7 @@ const MovieList = () => {
         alert("Movie not found!!");
       });
   };
-  console.log(moviesArray);
+
   return (
     <div className="movieContainer">
       <div className="header">
@@ -34,8 +33,9 @@ const MovieList = () => {
           id="outlined-basic"
           label="Search movie..."
           size="small"
-          onClick={handleSearchMovie}
+          onChange={handleSearchMovie}
           variant="outlined"
+          fullWidth
         />
         <Button
           className="searchButton"
