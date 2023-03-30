@@ -43,7 +43,6 @@ const MovieDetails = () => {
           <p>
             <span>RATING : </span>
             {movieDetail.imdbRating}
-            <img src="./rating.png" alt="" />
           </p>
           <p>
             <span>GENRE : </span>
