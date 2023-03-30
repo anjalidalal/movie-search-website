@@ -32,34 +32,42 @@ const MovieDetails = () => {
         <ArrowBackIcon fontSize="large" />
       </button>
       <div>
-        <img src={movieDetail.Poster} alt="" />
-        <div>
-          <h1>{movieDetail.Title}</h1>
-          <p>
+        <img src={movieDetail.Poster} className="moviePoster" alt="" />
+        <div className="details">
+          <h1 className="movieName">{movieDetail.Title}</h1>
+          <div className="tag">
             <span>{movieDetail.Year} | </span>
             <span>{movieDetail.Runtime}</span> |{" "}
             <span>{movieDetail.Language}</span>
+          </div>
+          <p>
+            <span>RATING : </span>
+            {movieDetail.imdbRating}
+            <img src="./rating.png" alt="" />
           </p>
           <p>
-            RATING : <span>{movieDetail.imdbRating}</span>
+            <span>GENRE : </span>
+            {movieDetail.Genre}
           </p>
           <p>
-            GENRE : <span>{movieDetail.Genre}</span>
+            <span>RELEASED : </span>
+            {movieDetail.Released}
           </p>
           <p>
-            RELEASED : <span>{movieDetail.Released}</span>
+            <span>DIRECTOR : </span>
+            {movieDetail.Director}
           </p>
           <p>
-            DIRECTOR : <span>{movieDetail.Director}</span>
+            <span> ACTORS : </span>
+            {movieDetail.Actors}
           </p>
           <p>
-            ACTORS : <span>{movieDetail.Actors}</span>
+            <span> WRITER : </span>
+            {movieDetail.Writer}
           </p>
           <p>
-            WRITER : <span>{movieDetail.Writer}</span>
-          </p>
-          <p>
-            PLOT : <span>{movieDetail.Plot}</span>
+            <span>PLOT : </span>
+            {movieDetail.Plot}
           </p>
         </div>
       </div>

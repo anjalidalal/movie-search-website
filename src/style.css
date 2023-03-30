@@ -88,24 +88,50 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
   margin: auto;
 }
 .movieDetails > div {
-  width: 90%;
+  width: 84%;
   gap: 24px;
   margin: auto;
   display: flex;
-  padding: 0px 24px;
+  flex-direction: column;
+  padding: 50px 10px 30px 10px;
 }
 .back {
   position: fixed;
   top: 1%;
-  left: 1%;
+  left: 0%;
   border: none;
-  padding: 5px;
   background-color: transparent;
+}
+.movieName {
+  font-weight: 700;
+  color: #030037;
+  font-size: 26px;
+}
+.tag {
+  color: #686687;
+  margin-bottom: 12px;
+}
+.tag > span {
+  padding: 0px 3px 0px 0px;
+}
+.details > p {
+  color: #030037;
+  font-size: 17px;
+  margin-top: 3px;
+}
+.details > p > span {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #686687;
+  font-weight: 600;
+  margin-right: 4px;
+}
+.moviePoster {
+  height: 370px;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .card {
@@ -118,8 +144,26 @@ a {
     padding: 15px 20px;
     gap: 15px;
   }
-
+  .movieDetails {
+    width: 100vw;
+    height: 100vh;
+  }
+  .movieDetails > div {
+    flex-direction: row;
+    padding: 0px 24px;
+  }
+  .back {
+    left: 1%;
+    top: 2%;
+  }
   .movieContainer > p {
     padding: 10px 22px;
+  }
+  .moviePoster {
+    height: 395px;
+  }
+  .movieName {
+    font-size: 32px;
+    text-align: left;
   }
 }
