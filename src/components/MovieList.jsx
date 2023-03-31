@@ -3,6 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const MovieList = () => {
   const [searchMovie, setSearchMovie] = useState();
@@ -53,7 +54,10 @@ const MovieList = () => {
       </div>
       <p>Results for {searchMovie}</p>
       {isLoading ? (
-        <div>Loading</div>
+        <div>
+          <CircularProgress />
+          Loading...
+        </div>
       ) : (
         <div className="moviesList">
           {moviesArray?.map((el) => (

@@ -83,14 +83,14 @@ a {
 .releaseYear {
   margin-bottom: 10px;
 }
-.movieDetails {
+.movieDetailPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
 }
-.movieDetails > div {
+.movieDetail {
   width: 84%;
   gap: 24px;
   margin: auto;
@@ -133,6 +133,15 @@ a {
   height: 370px;
   width: 100%;
 }
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 100vh;
+  gap: 15px;
+  font-size: 32px;
+}
 @media (min-width: 768px) {
   .card {
     width: 270px;
@@ -144,11 +153,11 @@ a {
     padding: 15px 20px;
     gap: 15px;
   }
-  .movieDetails {
+  .movieDetailPage {
     width: 100vw;
     height: 100vh;
   }
-  .movieDetails > div {
+  .movieDetail {
     flex-direction: row;
     padding: 0px 24px;
   }

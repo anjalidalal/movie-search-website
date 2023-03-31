@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate, useParams } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const MovieDetails = () => {
   const [movieDetail, setMovieDetail] = useState({});
@@ -29,14 +30,18 @@ const MovieDetails = () => {
   };
   console.log(movieDetail);
   return (
-    <div className="movieDetails">
+    <div className="movieDetailPage">
       <button className="back" onClick={handleNavigation}>
         <ArrowBackIcon fontSize="large" />
       </button>
       {isLoading ? (
-        <div>Loading.....</div>
+        <div className="loading">
+          {" "}
+          <CircularProgress color="inherit" />
+          Loading...
+        </div>
       ) : (
-        <div>
+        <div className="movieDetail">
           <img src={movieDetail.Poster} className="moviePoster" alt="" />
           <div className="details">
             <h1 className="movieName">{movieDetail.Title}</h1>
