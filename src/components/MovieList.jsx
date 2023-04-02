@@ -9,6 +9,7 @@ const MovieList = () => {
   const [searchMovie, setSearchMovie] = useState();
   const [moviesArray, setMoviesArray] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleSearchMovie = (e) => {
     setSearchMovie(e.target.value);
@@ -22,14 +23,15 @@ const MovieList = () => {
       .then((result) => {
         setMoviesArray(result.Search);
         setIsLoading(false);
+        console.log(result);
       })
       .catch((error) => {
         console.log(error);
         setIsLoading(false);
-        alert("Movie not found!!");
+        setError(error.Error);
       });
   };
-
+  console.log(error);
   return (
     <div className="movieContainer">
       <div className="header">
