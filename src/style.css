@@ -142,6 +142,17 @@ a {
   gap: 15px;
   font-size: 32px;
 }
+.errorMsg {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 700;
+  color: #030037;
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 @media (min-width: 768px) {
   .card {
     width: 270px;
@@ -174,5 +185,10 @@ a {
   .movieName {
     font-size: 32px;
     text-align: left;
+  }
+  .errorMsg {
+    flex-direction: row;
+    font-size: 34px;
+    gap: 2px;
   }
 }
